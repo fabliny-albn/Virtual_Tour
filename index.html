@@ -5,9 +5,22 @@
 		<title>Tour virtual</title>
 		<style>
 			body { margin: 0; } /* corpo */
+
+			#image-navigation { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 10; }
+			#image-navigation button { padding: 10px 20px; font-size: 16px; color: #fff; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 6px; cursor: pointer; }
+			#image-navigation button:hover { background: rgba(0, 0, 0, 0.75); }
+		
 		</style>
 	</head>
 	<body>
 		<script type="module" src="./script.js"></script>
+			
+		
+		//Botões de navegação//
+		<div id="image-navigation"> 
+			<button id="prev-image" type="button">Anterior</button>
+			<button id="next-image" type="button">Próximo</button>
+		</div>
+
 	</body>
 </html>
