@@ -120,12 +120,20 @@ window.addEventListener('mouseup', (event) => {
       // Ao clicar no ícone, avança para a próxima imagem
       currentImageIndex = (currentImageIndex + 1) % images.length;
       loadTexture(currentImageIndex);
-      
-      // Caso deseje implementar outra funcionalidade de navegação,
-      // adicione aqui o código para, por exemplo, retroceder a imagem ou abrir um menu.
     }
   }
 });
+
+ // Botões de navegação: Anterior e Próximo
+    document.getElementById('prev-image').addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+    loadTexture(currentImageIndex);
+    });
+
+    document.getElementById('next-image').addEventListener('click', () => {
+    currentImageIndex = (currentImageIndex + 1) % images.length;
+    loadTexture(currentImageIndex);
+    });
 
 // Evento para detectar o movimento do mouse e atualizar a rotação da câmera
 window.addEventListener('mousemove', (event) => {
