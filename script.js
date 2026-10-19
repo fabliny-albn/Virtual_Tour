@@ -31,7 +31,8 @@ const images = [
   'public/assets/test.jpg', 
   'public/assets/milkway.jpg', 
   'public/assets/vlw-mw-potw.jpg', 
-  'public/assets/armazones-sunset360.jpg'
+  'public/assets/armazones-sunset360.jpg',
+  'public/assets/sala_profissoes_panorama.jpg'
 ];
 let currentImageIndex = 0; // Índice que indica qual imagem está atualmente sendo exibida
 
