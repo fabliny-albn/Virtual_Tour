@@ -28,11 +28,11 @@ const textureLoader = new THREE.TextureLoader();
 // Array com as imagens utilizadas no tour virtual
 // Para adicionar novas imagens, basta inserir o caminho da imagem neste array
 const images = [
-  'public/assets/test.jpg', 
-  'public/assets/milkway.jpg', 
-  'public/assets/vlw-mw-potw.jpg', 
-  'public/assets/armazones-sunset360.jpg',
-  'public/assets/sala_profissoes_panorama.jpg'
+  '/assets/test.jpg', 
+  '/assets/milkway.jpg', 
+  '/assets/vlw-mw-potw.jpg', 
+  '/assets/armazones-sunset360.jpg',
+  '/assets/sala_profissoes_panorama.jpg'
 ];
 let currentImageIndex = 0; // Índice que indica qual imagem está atualmente sendo exibida
 
@@ -72,7 +72,7 @@ scene.add(ambientLight);
 
 // Cria um material para um sprite (ícone informativo) que permite interação com o usuário
 const spriteMaterial = new THREE.SpriteMaterial({
-  map: textureLoader.load('public/assets/info-icon.png'),
+  map: textureLoader.load('/assets/info-icon.png'),
   sizeAttenuation: true
 });
 
