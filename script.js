@@ -176,7 +176,7 @@ camera.rotation.order = 'YXZ';
 camera.up.set(0, 1, 0);
 
 // Adiciona uma luz ambiente para melhorar a visualização (mesmo não sendo fundamental para MeshBasicMaterial)
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
+const ambientLight = new THREE.AmbientLight(0xffffff, 2);
 scene.add(ambientLight);
 
 // Cria um material para um sprite (ícone informativo) que permite interação com o usuário
