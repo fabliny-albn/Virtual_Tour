@@ -19,7 +19,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 // Configurações de codificação e mapeamento de tom para melhor qualidade visual
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 0.6;
+renderer.toneMappingExposure = 1.4;
 // Adiciona o canvas criado ao corpo (body) do documento HTML
 document.body.appendChild(renderer.domElement);
 
@@ -176,7 +176,7 @@ camera.rotation.order = 'YXZ';
 camera.up.set(0, 1, 0);
 
 // Adiciona uma luz ambiente para melhorar a visualização (mesmo não sendo fundamental para MeshBasicMaterial)
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.9);
 scene.add(ambientLight);
 
 // Cria um material para um sprite (ícone informativo) que permite interação com o usuário
