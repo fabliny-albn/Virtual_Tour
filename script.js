@@ -28,11 +28,8 @@ const textureLoader = new THREE.TextureLoader();
 // Array com as imagens utilizadas no tour virtual
 // Para adicionar novas imagens, basta inserir o caminho da imagem neste array
 const images = [
-  '/assets/test.jpg', 
-  '/assets/milkway.jpg', 
-  '/assets/vlw-mw-potw.jpg', 
-  '/assets/armazones-sunset360.jpg',
-  '/assets/sala_profissoes_panorama.jpg'
+  '/assets/sala_profissoes_panorama.jpg',
+  '/assets/salaBule.jpg',
 ];
 let currentImageIndex = 0; // Índice que indica qual imagem está atualmente sendo exibida
 
