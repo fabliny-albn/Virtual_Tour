@@ -27,13 +27,12 @@ document.body.appendChild(renderer.domElement);
 const textureLoader = new THREE.TextureLoader();
 
 // Array com as imagens utilizadas no tour virtual
-// As versões em /assets/previews/ já estão em resolução menor para reduzir o tempo de transição
 const images = [
-  '/assets/previews/test.jpg',
-  '/assets/previews/milkway.jpg',
-  '/assets/previews/vlt-mw-potw.jpg',
-  '/assets/previews/armazones-sunset360.jpg',
-  '/assets/previews/sala_profissoes_panorama.jpg'
+  '/assets/test.jpg',
+  '/assets/milkway.jpg',
+  '/assets/vlt-mw-potw.jpg',
+  '/assets/armazones-sunset360.jpg',
+  '/assets/sala_profissoes_panorama.jpg'
 ];
 const textureCache = new Map();
 let currentImageIndex = 0; // Índice que indica qual imagem está atualmente sendo exibida
@@ -53,28 +52,24 @@ scene.add(sphere);
 // Função para aplicar uma textura já carregada na malha
 function applyTexture(texture) {
   texture.colorSpace = THREE.SRGBColorSpace;
+  const needsMaterialUpdate = material.map === null;
   material.map = texture;
-  material.needsUpdate = true;
+  if (needsMaterialUpdate) {
+    material.needsUpdate = true;
+  }
 }
 
-// Função para carregar uma textura (imagem) baseada no índice fornecido
-// Aqui você pode modificar ou ampliar a navegação entre imagens, adicionando novos comportamentos
+// Aplica uma textura já carregada com base no índice fornecido
 function loadTexture(index) {
   const textureUrl = images[index];
   const cachedTexture = textureCache.get(textureUrl);
 
   if (cachedTexture) {
     applyTexture(cachedTexture);
-    return;
   }
-
-  textureLoader.load(textureUrl, (texture) => {
-    textureCache.set(textureUrl, texture);
-    applyTexture(texture);
-  });
 }
 
-// Função para pré-carregar imagens futuras e reduzir o tempo de troca
+// Inicia o carregamento da textura sem depender da navegação do usuário
 function preloadTexture(index) {
   const textureUrl = images[index];
   if (!textureUrl || textureCache.has(textureUrl)) {
@@ -82,8 +77,13 @@ function preloadTexture(index) {
   }
 
   textureLoader.load(textureUrl, (texture) => {
+    texture.colorSpace = THREE.SRGBColorSpace;
+    renderer.initTexture(texture);
     textureCache.set(textureUrl, texture);
-  });
+    if (index === currentImageIndex) {
+      applyTexture(texture);
+    }
+  })
 }
 
 // Inicializa os botões de anterior e próximo
@@ -191,13 +191,8 @@ icon.position.set(0, -50, 400); // Posição do ícone
 icon.scale.set(50, 50, 1); // Escala do ícone
 scene.add(icon); // Adiciona o ícone à cena
 
-// Carrega a primeira imagem ao iniciar o projeto
-loadTexture(currentImageIndex);
-images.forEach((_, index) => {
-  if (index !== currentImageIndex) {
-    preloadTexture(index);
-  }
-});
+// Inicia o carregamento de todas as imagens ao abrir o projeto
+images.forEach((_, index) => preloadTexture(index));
 
 // Inicializa os botões de navegação
 initNavigation();
