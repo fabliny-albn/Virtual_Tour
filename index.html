@@ -1,24 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>Tour virtual</title>
-		<style>
-			body { margin: 0; } /* corpo */
 
-			#image-navigation { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); display: flex; gap: 12px; z-index: 10; }
-			#image-navigation button { padding: 10px 20px; font-size: 16px; color: #fff; background: rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 6px; cursor: pointer; }
-			#image-navigation button:hover { background: rgba(0, 0, 0, 0.75); }
-		
-		</style>
-	</head>
-	<body>
-		<!--Botões de navegação-->
-		<div id="image-navigation"> 
-			<button id="prev-image" type="button">Anterior</button>
-			<button id="next-image" type="button">Próximo</button>
-		</div>
+<head>
+	<meta charset="utf-8">
+	<title>Tour virtual</title>
+	<style>
+		body {
+			margin: 0;
+		}
 
-		<script type="module" src="./script.js"></script>
-	</body>
+		/* corpo */
+
+		#image-navigation {
+			position: fixed;
+			bottom: 20px;
+			left: 50%;
+			transform: translateX(-50%);
+			display: flex;
+			gap: 12px;
+			z-index: 10;
+		}
+
+		#image-navigation button {
+			padding: 10px 20px;
+			font-size: 16px;
+			color: #fff;
+			background: rgba(0, 0, 0, 0.5);
+			border: 1px solid rgba(255, 255, 255, 0.4);
+			border-radius: 6px;
+			cursor: pointer;
+		}
+
+		#image-navigation button:hover {
+			background: rgba(0, 0, 0, 0.75);
+		}
+
+		#room-name {
+			position: fixed;
+			bottom: 80px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 10;
+			padding: 10px 24px;
+			font-family: Arial, sans-serif;
+			font-size: 20px;
+			color: #00c853;
+			background: rgba(0, 0, 0, 0.5);
+			border: 2px solid #fff;
+			border-radius: 8px;
+		}
+	</style>
+</head>
+
+<body>
+	<script type="module" src="./script.js"></script>
+	<script type="module" src="./room-names.js"></script>
+
+	<div id="room-name">Galeria Gilberto Gerlach</div>
+	<!--Botões de navegação-->
+	<div id="image-navigation">
+		<button id="prev-image" type="button">Anterior</button>
+		<button id="next-image" type="button">Próximo</button>
+	</div>
+
+</body>
+
 </html>
