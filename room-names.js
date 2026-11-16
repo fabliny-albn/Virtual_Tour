@@ -1,12 +1,13 @@
 // Nomes das salas, na ordem do tour
 const roomNames = [
-    "Galeria Gilberto Gerlach",
-    "Sala Militar",
-    "Sala Indígena",
-    "Sala de Arte Sacra",
-    "Sala de Ofícios Antigos",
-    "Galeria de Artes"
-];
+    "Sala Político Administrativa",
+    "Sala Açoriana",
+    "Sala Arqueologia/Indígena",
+    "Sala Religiosa",
+    "Sala da Vida Privada/ Souvenirs",
+    "Ala da História Militar",
+    "Ala dos Costumes do Passado"
+ ];
 
 let currentRoom = 0;
 
