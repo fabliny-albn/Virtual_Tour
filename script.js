@@ -28,6 +28,7 @@ const textureLoader = new THREE.TextureLoader();
 
 // Array com as imagens utilizadas no tour virtual
 const images = [
+  '/assets/panorama_sala_entrada.jpg',
   '/assets/sala_profissoes_panorama.jpg',
   '/assets/salaBule.jpg',
 ];
